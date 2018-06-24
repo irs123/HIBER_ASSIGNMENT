@@ -16,9 +16,10 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
-	@OneToMany (mappedBy ="book")
+	@OneToMany (cascade = CascadeType.ALL)
 
-	
+	@JoinTable(name = "author_book" ,joinColumns = @JoinColumn (name = "author_id") ,
+					inverseJoinColumns = @JoinColumn (name = "book_id"))
 	private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
 	public int getBook_price() {

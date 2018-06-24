@@ -25,12 +25,11 @@ public class Application {
 					
 					Book book = new Book();
 					
-					author.setAuthor_id(116);
+					author.setAuthor_id(115);
 				   	author.setAuthor_name("JAMES");
-				   	author.setBook(book);
-				   	author.setBook(book);
-				   	
-				   	
+				 
+					author.setAuthor_id(117);
+				   	author.setAuthor_name("franklin");
 				   	
 				   	book.setBook_id(106);
 					book.setBook_name("JAVAA");
@@ -40,6 +39,7 @@ public class Application {
 				 	       
 					ss.save(book);
 					ss.save(author);  
+					ss.save(author1);
 					 
 				 			
 					t.commit();
@@ -51,7 +51,7 @@ public class Application {
 			 /*------ update method---*/		
 				public void update() {
 						try{
-						Book book= (Book) ss.get(Book.class,105); //here 102 is the Primary Key of the Entity which we want to delete
+						Book book= (Book) ss.get(Book.class,115); //here 102 is the Primary Key of the Entity which we want to delete
 						book.setBook_name("JAVA");
 					
 						ss.update(book);
@@ -69,7 +69,7 @@ public class Application {
 				public void delete() {
 					
 					try{
-					Book book = (Book)ss.get(Book.class, 104); //here 102 is the Primary Key of the Entity which we want to delete
+					Book book = (Book)ss.get(Book.class, 115); //here 102 is the Primary Key of the Entity which we want to delete
 					ss.delete(book);
 					ss.save(book);
 					ss.close();
