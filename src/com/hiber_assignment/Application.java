@@ -11,10 +11,11 @@ import org.hibernate.cfg.Configuration;
 
 import com.hiber_assignment.Author;
 import com.hiber_assignment.Book;
-
+/*---------- --------- ----- Question1------ -------- --------------*/
 public class Application {
 	   public static void main(String args[]) throws Exception{
 		
+		   /*----Session is created here ------*/
 		   	  Configuration conf = new Configuration().configure().addAnnotatedClass(Book.class).addAnnotatedClass(Author.class);
 		   	  SessionFactory sf = conf.buildSessionFactory();
 		   	  Session ss = sf.openSession();
@@ -76,13 +77,15 @@ public class Application {
 		 	    	ss.clear();
 		       	 }
 		 	       	      
-		 	  }
+		 	   }
 		 			
 		    	  t.commit();
 			      ss.close();
 			      sc.close();
 			      
+			      
 			      System.out.println("COMPLETED");
+			      
 	
 		}
 	
