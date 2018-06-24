@@ -14,11 +14,15 @@ public class Author {
 	private String author_name;
 	
 
-	@ManyToOne (cascade = CascadeType.ALL)
+	@ManyToMany (cascade = CascadeType.ALL)
+	private Collection<Book> ListOfBook = new ArrayList<>();
 
-	@JoinColumn(name = "book_id")
-	private Book book;
-
+	public Collection<Book> getListOfBook() {
+		return ListOfBook;
+	}
+	public void setListOfBook(Collection<Book> listOfBook) {
+		ListOfBook = listOfBook;
+	}
 	public int getAuthor_id() {
 		return author_id;
 	}

@@ -27,9 +27,11 @@ public class Application {
 					
 					author.setAuthor_id(119);
 				   	author.setAuthor_name("JAMES");
-				 
+				   	author.getListOfBook().add(book);
+				   	
 					author1.setAuthor_id(118);
 				   	author1.setAuthor_name("franklin");
+				   	author1.getListOfBook().add(book);				   	
 				   	
 				   	book.setBook_id(116);
 					book.setBook_name("JAVAA");
