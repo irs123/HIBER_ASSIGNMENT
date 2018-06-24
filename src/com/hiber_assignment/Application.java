@@ -27,20 +27,21 @@ public class Application {
 					
 					author.setAuthor_id(119);
 				   	author.setAuthor_name("JAMES");
-				   	author.getListOfBook().add(book);
 				   	
-					author1.setAuthor_id(118);
-				   	author1.setAuthor_name("franklin");
-				   	author1.getListOfBook().add(book);				   	
-				   	
-				   	book.setBook_id(116);
+				 	book.setBook_id(116);
 					book.setBook_name("JAVAA");
 					book.setBook_price(760);
+					
+					AuthorAddress auth_add = new AuthorAddress();
+					auth_add.setAuthor_id(112);
+					auth_add.setAuthor_address("34c lajpat IV");
+					auth_add.setAuthor(author);
+
 					       
 					ss.save(book);
 					ss.save(author);  
-					ss.save(author1);
-					 
+					
+					ss.save(auth_add);
 				 			
 					t.commit();
 					ss.close();

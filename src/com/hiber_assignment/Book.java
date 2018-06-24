@@ -16,15 +16,7 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-    private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
-	public Collection<Author> getListOfAuthor() {
-		return ListOfAuthor;
-	}
-	public void setListOfAuthor(Collection<Author> listOfAuthor) {
-		ListOfAuthor = listOfAuthor;
-	}
 	public int getBook_price() {
 		return book_price;
 	}

@@ -14,16 +14,7 @@ public class Author {
 	private String author_name;
 	
 
-	@ManyToMany (cascade = CascadeType.ALL)
-	private Collection<Book> ListOfBook = new ArrayList<>();
-
-	public Collection<Book> getListOfBook() {
-		return ListOfBook;
-	}
-	public void setListOfBook(Collection<Book> listOfBook) {
-		ListOfBook = listOfBook;
-	}
-	public int getAuthor_id() {
+		public int getAuthor_id() {
 		return author_id;
 	}
 	public void setAuthor_id(int author_id) {
