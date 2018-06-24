@@ -16,7 +16,9 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
-	@OneToMany (cascade = CascadeType.ALL)
+	@OneToMany (mappedBy ="book")
+
+	
 	private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
 	public int getBook_price() {

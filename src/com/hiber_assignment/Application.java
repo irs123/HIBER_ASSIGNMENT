@@ -26,14 +26,14 @@ public class Application {
 					Book book = new Book();
 					
 					author.setAuthor_id(116);
-				   	author.setAuthor_name("Chatar Patar");
+				   	author.setAuthor_name("JAMES");
 				   	author.setBook(book);
 				   	author.setBook(book);
 				   	
 				   	
 				   	
 				   	book.setBook_id(106);
-					book.setBook_name("JABA");
+					book.setBook_name("JAVAA");
 					book.setBook_price(760);
 					book.getListOfAuthor().add(author);
 					book.getListOfAuthor().add(author1);
