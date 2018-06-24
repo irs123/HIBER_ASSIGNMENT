@@ -1,6 +1,14 @@
 package com.hiber_assignment;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+
 import javax.persistence.*;
+
+import org.hibernate.mapping.Set;
+
+import antlr.collections.List;
 @Entity
 public class Book {
 	@Id
@@ -8,20 +16,21 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
-	@OneToOne (cascade = CascadeType.ALL)
-	private Author author;
+	@OneToMany (cascade = CascadeType.ALL)
+	@JoinColumn (name ="Book_Author")
+	private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
-	public Author getAuthor() {
-		return author;
-	}
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
 	public int getBook_price() {
 		return book_price;
 	}
 	public void setBook_price(int book_price) {
 		this.book_price = book_price;
+	}
+	public Collection<Author> getListOfAuthor() {
+		return ListOfAuthor;
+	}
+	public void setListOfAuthor(Collection<Author> listOfAuthor) {
+		ListOfAuthor = listOfAuthor;
 	}
 	public int getBook_id() {
 		return book_id;
