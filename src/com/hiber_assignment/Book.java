@@ -16,11 +16,6 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
-	@OneToMany (cascade = CascadeType.ALL)
-
-	@JoinTable(name = "author_book" ,joinColumns = @JoinColumn (name = "author_id") ,
-					inverseJoinColumns = @JoinColumn (name = "book_id"))
-	private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
 	public int getBook_price() {
 		return book_price;
@@ -28,12 +23,7 @@ public class Book {
 	public void setBook_price(int book_price) {
 		this.book_price = book_price;
 	}
-	public Collection<Author> getListOfAuthor() {
-		return ListOfAuthor;
-	}
-	public void setListOfAuthor(Collection<Author> listOfAuthor) {
-		ListOfAuthor = listOfAuthor;
-	}
+	
 	public int getBook_id() {
 		return book_id;
 	}

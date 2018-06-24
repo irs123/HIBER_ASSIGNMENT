@@ -12,6 +12,12 @@ public class Author {
 	@Id 
 	private int author_id;
 	private String author_name;
+	
+
+	@ManyToOne (cascade = CascadeType.ALL)
+
+	@JoinColumn(name = "book_id")
+	private Book book;
 
 	public int getAuthor_id() {
 		return author_id;

@@ -25,18 +25,16 @@ public class Application {
 					
 					Book book = new Book();
 					
-					author.setAuthor_id(115);
+					author.setAuthor_id(119);
 				   	author.setAuthor_name("JAMES");
 				 
-					author.setAuthor_id(117);
-				   	author.setAuthor_name("franklin");
+					author1.setAuthor_id(118);
+				   	author1.setAuthor_name("franklin");
 				   	
-				   	book.setBook_id(106);
+				   	book.setBook_id(116);
 					book.setBook_name("JAVAA");
 					book.setBook_price(760);
-					book.getListOfAuthor().add(author);
-					book.getListOfAuthor().add(author1);
-				 	       
+					       
 					ss.save(book);
 					ss.save(author);  
 					ss.save(author1);
