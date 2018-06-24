@@ -8,6 +8,15 @@ public class Book {
 	private String book_name;
 	private int book_price;
 	
+	@OneToOne (cascade = CascadeType.ALL)
+	private Author author;
+	
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 	public int getBook_price() {
 		return book_price;
 	}

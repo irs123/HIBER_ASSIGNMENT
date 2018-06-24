@@ -1,95 +1,111 @@
 package com.hiber_assignment;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.hiber_assignment.Author;
-import com.hiber_assignment.Book;
-/*---------- --------- ----- Question1------ -------- --------------*/
+
 public class Application {
-	   public static void main(String args[]) throws Exception{
-		
-		   /*----Session is created here ------*/
-		   	  Configuration conf = new Configuration().configure().addAnnotatedClass(Book.class).addAnnotatedClass(Author.class);
-		   	  SessionFactory sf = conf.buildSessionFactory();
-		   	  Session ss = sf.openSession();
-		   	  Transaction t =	ss.beginTransaction();
-		
-		   	  Scanner sc = new Scanner(System.in);
-		   	  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
-		   	  int batchsize = 5;
-		  
-		   	  System.out.println("Enter the no of entities which you want to enter");
-		   	  int n = sc.nextInt();
-		   	  
+			/*-----Here session is created so that it can be accessible by all method ----*/
+				Configuration conf = new Configuration().configure().addAnnotatedClass(Book.class).addAnnotatedClass(Author.class);
+		  		SessionFactory sf = conf.buildSessionFactory();
+		  		Session ss = sf.openSession();
+		  		Transaction t =	ss.beginTransaction();
+		  	
+	   /*------ create method---*/		
+			public void create() throws Exception {
+				
+					Author author = new Author();
+				   	
+					author.setAuthor_id(112);
+				   	author.setAuthor_name("JK Rowling");
+				   		
+					Book book = new Book();
 
-		   System.out.println("\nENTER THE DETAILS OF AUTHOR \n\n");
-		   	for(int i=0;i<n;i++) {
-			   	Author author = new Author();
-
-		   		System.out.println("enter author id");
-		   		int a_id = sc.nextInt();
-		 			   
-		 	      	   
-		   		System.out.println("enter author name");
-		   		String a_name = br.readLine();
-		   		
-		   		author.setAuthor_id(a_id);
-		   		author.setAuthor_name(a_name);
-		   		
-		   		ss.save(author);
-
-		   		if(i>0 && i% batchsize == 0) {  
-		   			ss.flush();
-		   			ss.clear();
-		 	    }
-		 	       }
-		
-		   System.out.println("Enter the details of  book");
-		   for(int i=0;i<n;i++)
-		   {
-		   		Book book = new Book();
-
-		 		System.out.println("enter book id");
-		 	    int b_id = sc.nextInt();
-		 	       
-		 	    System.out.println("enter book name");
-		 	    String b_name = br.readLine();    
-		 	      
-		 	    System.out.println("enter book price");
-		 	    int b_price = sc.nextInt();
-		 	       
-		 	    book.setBook_id(b_id);
-		 	    book.setBook_name(b_name);
-		 	    book.setBook_price(b_price);
-		 	       
-		 	    ss.save(book);
-		 	       
-		 	    if(i>0 && i% batchsize == 0) { 
-		 	    	ss.flush();
-		 	    	ss.clear();
-		       	 }
-		 	       	      
-		 	   }
-		 			
-		    	  t.commit();
-			      ss.close();
-			      sc.close();
-			      
-			      
-			      System.out.println("COMPLETED");
-			      
+					book.setBook_id(102);
+					book.setBook_name("Harry Potter");
+					book.setBook_price(29000);
+					book.setAuthor(author);
+				 	       
+					ss.save(book);
+					ss.save(author);       
+				 	 
+				 			
+					t.commit();
+					ss.close();
+					
+								
+			}
+				   
+			 /*------ update method---*/		
+				public void update() {
+						try{
+						Book book= (Book) ss.get(Book.class,101);
+						book.setBook_name("POTTER");
+					
+						ss.update(book);
+						ss.save(book);
+						t.commit();
+						ss.close();
+						}
+						catch(Exception e) {
+						}
+				
+				}
+			
+			
+			/*------ delete method---*/		
+				public void delete() {
+					
+					try{
+					Book book = (Book)ss.get(Book.class, 101);
+					ss.delete(book);
+					ss.save(book);
+					ss.close();
+					t.commit();
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+						
+						
+				}
+   
+//	main method starts here		
+			public static void main(String args[]) throws Exception {
+					Application obj = new Application();
+				
+					System.out.println("Please enter you choice");
+					System.out.println("1.Create");
+					System.out.println("2.update");
+					System.out.println("3.Delete");
+					
+					Scanner sc = new Scanner(System.in);
+					int i = sc.nextInt();
+					
+					switch(i)
+					{  case 1 : obj.create();
+									break;
+					
+					   case 2 : obj.update();
+					   				break;	
+					
+					   case 3 : obj.delete();
+					   				break;
+					   
+					   default :System.out.println("Enter correct choice");
+						   
+					}
+					
+					
+				
+					System.out.println("COMPLETED");
 	
-		}
-	
-
-	
+	  }
 }
-
