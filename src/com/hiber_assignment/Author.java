@@ -10,7 +10,16 @@ public class Author {
 	private int author_id;
 	 private String author_name;
 	 
+	 @OneToOne (cascade = CascadeType.ALL)
+	 private Book book;
 	 
+	 
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
+	}
 	public int getAuthor_id() {
 		return author_id;
 	}

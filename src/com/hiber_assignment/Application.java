@@ -21,15 +21,15 @@ public class Application {
 			public void create() throws Exception {
 				
 					Author author = new Author();
-				   	
-					author.setAuthor_id(112);
-				   	author.setAuthor_name("JK Rowling");
-				   		
 					Book book = new Book();
-
-					book.setBook_id(102);
-					book.setBook_name("Harry Potter");
-					book.setBook_price(29000);
+					
+					author.setAuthor_id(114);
+				   	author.setAuthor_name("Pata nhi");
+				   	author.setBook(book);
+				   		
+					book.setBook_id(104);
+					book.setBook_name("Operating System");
+					book.setBook_price(760);
 					book.setAuthor(author);
 				 	       
 					ss.save(book);
@@ -45,8 +45,8 @@ public class Application {
 			 /*------ update method---*/		
 				public void update() {
 						try{
-						Book book= (Book) ss.get(Book.class,101);
-						book.setBook_name("POTTER");
+						Book book= (Book) ss.get(Book.class,104); //here 102 is the Primary Key of the Entity which we want to delete
+						book.setBook_name("OS");
 					
 						ss.update(book);
 						ss.save(book);
@@ -63,7 +63,7 @@ public class Application {
 				public void delete() {
 					
 					try{
-					Book book = (Book)ss.get(Book.class, 101);
+					Book book = (Book)ss.get(Book.class, 104); //here 102 is the Primary Key of the Entity which we want to delete
 					ss.delete(book);
 					ss.save(book);
 					ss.close();
