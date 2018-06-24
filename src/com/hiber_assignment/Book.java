@@ -17,7 +17,6 @@ public class Book {
 	private int book_price;
 	
 	@OneToMany (cascade = CascadeType.ALL)
-	@JoinColumn (name ="Book_Author")
 	private Collection <Author> ListOfAuthor = new ArrayList<>();
 	
 	public int getBook_price() {

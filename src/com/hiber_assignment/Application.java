@@ -24,24 +24,23 @@ public class Application {
 					Author author1 = new Author();
 					
 					Book book = new Book();
-					book.setBook_id(106);
-					book.setBook_name("JABA");
-					book.setBook_price(760);
 					
 					author.setAuthor_id(116);
 				   	author.setAuthor_name("Chatar Patar");
+				   	author.setBook(book);
+				   	author.setBook(book);
 				   	
-				   	author1.setAuthor_id(117);
-				   	author1.setAuthor_name("Chatar Patar");
-				   		
-					
+				   	
+				   	
+				   	book.setBook_id(106);
+					book.setBook_name("JABA");
+					book.setBook_price(760);
 					book.getListOfAuthor().add(author);
 					book.getListOfAuthor().add(author1);
 				 	       
 					ss.save(book);
 					ss.save(author);  
-					ss.save(author1);
-				 	 
+					 
 				 			
 					t.commit();
 					ss.close();
